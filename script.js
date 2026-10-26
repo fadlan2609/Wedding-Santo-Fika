@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCursorHeart();
   initTapHearts();
   initGaleri();
+  initSaveTheDate(); // Fungsi untuk deteksi kalender otomatis
 
   if (window.AOS) AOS.init({ duration: 700, once: true, offset: 40 });
 });
@@ -62,6 +63,43 @@ function getGuestNameFromURL() {
 function updateGuestName(name) {
   if ($('#home-guest-name')) $('#home-guest-name').textContent = name;
   if ($('#nav-guest-name')) $('#nav-guest-name').textContent = name;
+}
+
+// ---------- Deteksi Perangkat untuk Tombol Save Date ----------
+function initSaveTheDate() {
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+  // Link Google Calendar (Untuk Android & PC)
+  const linkAkadGCal = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Akad+Nikah+Fika+%26+Santo&dates=20261127T010000Z/20261127T030000Z&details=Akad+Nikah+Fika+Wahyuni+%26+Santo&location=Jl.+Pancing+1+Suasa+Selatan,+Pasar+3B+Mabar+Hilir,+Medan&ctz=Asia/Jakarta";
+  const linkResepsiGCal = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Resepsi+Pernikahan+Fika+%26+Santo&dates=20261129T030000Z/20261129T060000Z&details=Resepsi+Pernikahan+Fika+Wahyuni+%26+Santo&location=Jl.+Pancing+1+Suasa+Selatan,+Pasar+3B+Mabar+Hilir,+Medan&ctz=Asia/Jakarta";
+
+  // Link File .ics (Untuk Apple/iOS)
+  const linkAkadICS = "assets/akad.ics";
+  const linkResepsiICS = "assets/resepsi.ics";
+
+  // Atur Tombol Akad
+  const btnAkad = document.getElementById('btn-save-akad');
+  if (btnAkad) {
+    if (isIOS) {
+      btnAkad.href = linkAkadICS;
+      btnAkad.removeAttribute('target'); 
+    } else {
+      btnAkad.href = linkAkadGCal;
+      btnAkad.target = "_blank";
+    }
+  }
+
+  // Atur Tombol Resepsi
+  const btnResepsi = document.getElementById('btn-save-resepsi');
+  if (btnResepsi) {
+    if (isIOS) {
+      btnResepsi.href = linkResepsiICS;
+      btnResepsi.removeAttribute('target');
+    } else {
+      btnResepsi.href = linkResepsiGCal;
+      btnResepsi.target = "_blank";
+    }
+  }
 }
 
 // ---------- Navigation ----------
