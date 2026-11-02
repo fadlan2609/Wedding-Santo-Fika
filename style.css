@@ -1155,3 +1155,73 @@ th { font-size: 8px; letter-spacing: 1px; text-transform: uppercase; color: var(
   .envelope-wrap { width: 100px; height: 76px; }
   .event-actions .luxury-btn { max-width: 100%; }
 }
+
+/* Developer Instagram Link */
+.footer .dev-link {
+  color: var(--gold-light);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 4px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer .dev-link:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.footer .dev-link i {
+  font-size: 14px;
+  color: #e58aa8; /* Warna pink instagram */
+}
+
+/* ============================================================
+   25. SOCIAL LINK & FOOTER DEVELOPER
+   ============================================================ */
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 11px;
+  color: var(--maroon);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.social-link:hover {
+  background: var(--maroon);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(84, 24, 39, 0.2);
+}
+
+.social-link i {
+  font-size: 14px;
+}
+
+/* Developer Footer */
+.footer .dev-link {
+  color: var(--gold-light);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 4px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer .dev-link:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.footer .dev-link i {
+  font-size: 14px;
+  color: #e58aa8;
+}
